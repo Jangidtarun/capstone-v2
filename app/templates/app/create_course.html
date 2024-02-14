@@ -3,7 +3,10 @@
 {% block body %}
     <h2>This is Create Course page.</h2>
     <div>
-        <form action="#" method="post">
+        <p style="color: red;">{{ message }}</p>
+    </div>
+    <div>
+        <form action="{% url 'create_course' %}" method="post">
             {% csrf_token %}
             <input type="text" name="title" id="title" placeholder="Course title">
             <input type="submit" value="Create">

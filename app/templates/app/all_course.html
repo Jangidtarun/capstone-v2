@@ -1,12 +1,22 @@
 {% extends 'app/layout.html' %}
 
 {% block body %}
-    <h2>This is All Course page.</h2>
+<div>
+    <a href="{% url 'academics' %}">Academics</a>
+</div>
+<h2>This is All Course page.</h2>
+<div>
+    <p style="color: red;">{{ message }}</p>
+</div>
     <div>
-        {% for course in courses %}
-            {{ course.title }}
-        {% empty %}
-            No courses!
-        {% endfor %}
+        <ul style="list-style-type:square">
+            {% for course in courses %}
+            <div>
+                <li>{{ course.title }}</li>
+            </div>
+            {% empty %}
+                <h4 style="color: orange;">No courses!</h4>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}

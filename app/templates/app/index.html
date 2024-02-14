@@ -2,5 +2,15 @@
 
 {% block body %}
     <h2>This is Home page.</h2>
-    <a href="{% url 'academics' %}">Academics</a>
+    <div>
+        <p style="color: red;">{{ message }}</p>
+    </div>
+    {% if user.is_authenticated %}
+        <a href="{% url 'academics' %}">Academics</a>
+        {% if user.is_staff %}
+        <a href="{% url 'create_course' %}">Create course</a>
+        {% endif %}
+    {% endif %}
+
+    
 {% endblock %}

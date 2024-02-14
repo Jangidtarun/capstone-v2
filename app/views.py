@@ -18,6 +18,22 @@ def all_course_view(req):
         'courses': courses
     })
 
+def create_course(req):
+    if req.method == 'POST':
+        coursetitle = req.POST['title']
+        try:
+            newcourse = Course.objects.create(
+                title = coursetitle
+            )
+        except IntegrityError as err:
+            print(err)
+            return render(req, 'app/create_course.html', {
+                'message': 'A course with this name already exists'
+            })
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        return render(req, 'app/create_course.html')
+
 def register(req):
     if req.method == 'POST':
         firstname = req.POST['firstname']

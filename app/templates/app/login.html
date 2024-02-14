@@ -1,9 +1,9 @@
 {% extends 'app/layout.html' %}
 
 {% block body %}
-    <div>
-        {{ message }}
-    </div>
+<div>
+    <p style="color: red;">{{ message }}</p>
+</div>
     <div>
         <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
