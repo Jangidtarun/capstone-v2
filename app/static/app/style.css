@@ -1,5 +1,6 @@
 body{
     padding: 8px;
+    font-family: monospace;
 }
 
 input{
@@ -8,4 +9,8 @@ input{
 
 a:link{
     margin-right: 8px;
+}
+
+.btn{
+    border: none;
 }

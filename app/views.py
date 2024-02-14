@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from .models import User, Course
+from .models import User, Course, Semester
 
 # Create your views here.
 def index(req):
@@ -33,6 +33,12 @@ def create_course(req):
         return HttpResponseRedirect(reverse('index'))
     else:
         return render(req, 'app/create_course.html')
+
+def add_course_view(req):
+    semesters = Semester.objects.all()
+    return render(req, 'app/add_course.html', {
+        'semesters': semesters
+    })
 
 def register(req):
     if req.method == 'POST':
