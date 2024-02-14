@@ -1,0 +1,12 @@
+{% extends 'app/layout.html' %}
+
+{% block body %}
+    <h2>This is All Course page.</h2>
+    <div>
+        {% for course in courses %}
+            {{ course.title }}
+        {% empty %}
+            No courses!
+        {% endfor %}
+    </div>
+{% endblock %}

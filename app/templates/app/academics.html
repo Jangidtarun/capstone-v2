@@ -1,0 +1,10 @@
+{% extends 'app/layout.html' %}
+
+{% block body %}
+    <h2>This is Academics page.</h2>
+    <div>
+        <a href="#">Add courses</a>
+        <a href="{% url 'all_courses' %}">View all courses</a>
+        <a href="#">View my courses</a>
+    </div>
+{% endblock %}
