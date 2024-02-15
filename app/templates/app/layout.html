@@ -25,7 +25,8 @@
             <a href="{% url 'logout' %}">Logout</a>
         {% else %}
             <a href="{% url 'login' %}">Login</a> |
-            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'register' %}">Student Register</a> |
+            <a href="{% url 'fac_register' %}">Faculty Register</a>
         {% endif %}
     </div>
     {% block body %}

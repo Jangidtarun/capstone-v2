@@ -16,7 +16,7 @@ class Semester(models.Model):
 
 class Course(models.Model):
     title = models.CharField(max_length=64)
-    semester = models.ForeignKey(Semester, on_delete=models.CASCADE, related_name='sem')
+    user = models.ManyToManyField(User)
 
     def __str__(self) -> str:
-        return f'{self.title} in {self.semester.pk}'
+        return f'{self.title}'

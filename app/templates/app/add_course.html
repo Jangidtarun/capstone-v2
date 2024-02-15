@@ -7,7 +7,7 @@
             {% for sem in semesters %}
                 <li>
                     {% if sem.status %}
-                        <a href="#">{{ sem.title }}</a>
+                        <a href="{% url 'course_register' %}">{{ sem.title }}</a>
                         <small style="color: green;">[Open]</small>
                         {% else %}
                         <a href="#" class="btn disabled p-0">{{ sem.title }}</a>

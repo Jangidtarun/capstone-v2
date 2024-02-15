@@ -1,0 +1,73 @@
+{% extends 'app/layout.html' %}
+
+{% block body %}
+    <h2>This is Course Registration page.</h2>
+    <div>
+        <p style="color: green;">{{ message }}</p>
+    </div>
+    <div>
+        <p style="color: red;">{{ error }}</p>
+    </div>
+    <div class="row m-2">
+        <div class="col m-1 border">
+            <div class="border-bottom">
+                Available Courses
+            </div>
+            <ul style="list-style-type:square">
+                {% for course in available_courses %}
+                <div>
+                    <li>
+                        <div class="row">
+                            <div class="col">
+                                {{ course.title }}
+                            </div>
+                            <div class="col">
+                                
+                                <small>
+                                    <form action="{% url 'course_register' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="coursetitle" value="{{ course.title }}">
+                                        <input class="py-0 px-1 m-1" type="submit" value="Register">
+                                    </form>
+                                </small>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                {% empty %}
+                <li style="color: orangered;">No course Available!</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col m-1 border">
+            <div class="border-bottom">
+                Registered Courses 
+            </div>
+            <ul style="list-style-type:square">
+                {% for course in registered_courses %}
+                <div>
+                    <li>
+                        <div class="row">
+                            <div class="col">
+                                {{ course.title }}
+                            </div>
+                            <div class="col">
+                                
+                                <small>
+                                    <form action="{% url 'course_unregister' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="coursetitle" value="{{ course.title }}">
+                                        <input class="py-0 px-1 m-1" type="submit" value="Unregister">
+                                    </form>
+                                </small>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+                {% empty %}
+                <li style="color: orangered;">No course Registered yet!</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,19 +1,19 @@
 {% extends 'app/layout.html' %}
 
 {% block body %}
-    <h3>Student Registration</h3>
+    <h3>Faculty Registration</h3>
     <div>
         <p style="color: red;">{{ message }}</p>
     </div>
     <div>
-        <form action="{% url 'register' %}" method="post">
+        <form action="{% url 'fac_register' %}" method="post">
             {% csrf_token %}
             <input type="text" name="firstname" id="firstname" placeholder="first name">
             <input type="text" name="lastname" id="lastname" placeholder="last name"><br>
             <input type="text" name="username" id="username" placeholder="username">
             <input type="password" name="password" id="password" placeholder="password">
             <input type="password" name="conf" id="conf" placeholder="re enter password"><br>
-            <input type="submit" value="Login">
+            <input type="submit" value="Register">
         </form>
     </div>
 {% endblock %}
