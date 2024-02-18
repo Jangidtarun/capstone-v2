@@ -15,8 +15,15 @@ class Semester(models.Model):
 
 
 class Course(models.Model):
-    title = models.CharField(max_length=64)
     user = models.ManyToManyField(User)
+    title = models.CharField(max_length=64)
+    course_code = models.CharField(max_length=8)
+    grade = models.PositiveIntegerField()
+    credit = models.PositiveIntegerField()
+    elective_type_choices = {
+
+    }
+    elective_type = models.CharField(max_length=64, choices=elective_type_choices)
 
     def __str__(self) -> str:
         return f'{self.title}'

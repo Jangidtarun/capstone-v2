@@ -1,22 +1,32 @@
 {% extends 'app/layout.html' %}
 
 {% block body %}
-<div>
-    <a href="{% url 'academics' %}">Academics</a>
-</div>
-<h2>This is All Course page.</h2>
-<div>
-    <p style="color: red;">{{ message }}</p>
-</div>
     <div>
-        <ul style="list-style-type:square">
-            {% for course in courses %}
-            <div>
-                <li>{{ course.title }}</li>
-            </div>
-            {% empty %}
+        <a href="{% url 'academics' %}">Academics</a>
+    </div>
+    <h2>This is All Course page.</h2>
+    <div>
+        <p style="color: red;">{{ message }}</p>
+    </div>
+
+    <div class="row m-2">
+        <div class="col m-1">
+            <ul style="list-style-type:square">
+                {% for course in courses %}
+                <div>
+                    <li>{{ course.title }}</li>
+                </div>
+                {% empty %}
                 <h4 style="color: orange;">No courses!</h4>
-            {% endfor %}
-        </ul>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col m-1 border">
+            {% if selected_course.description %}
+                {{ selected_course.description }}
+            {% else %}
+                <h5>No Course Selected</h5>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
