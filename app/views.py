@@ -119,6 +119,7 @@ def register(req):
         return render(req, 'app/studentregister.html')
     
 
+
 def fac_register(req):
     if req.method == 'POST':
         firstname = req.POST['firstname']
