@@ -1,9 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+ME = "Mechanical Engineering"
+EE = "Electrical Engineering"
+CS = "Computer Science"
+# (...)
+
+deptchoices = (
+    (ME, "January"),
+    (FEB, "February"),
+    (MAR, "March"),
+    # ....
+    (DEC, "December"),
+)
+
 # Create your models here.
 class User(AbstractUser):
-    pass
+    department = models.CharField(max_length=64, choices=deptchoices)
 
     
 class Semester(models.Model):
