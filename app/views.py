@@ -171,5 +171,3 @@ def login_view(req):
             })
     else:
         return render(req, 'app/login.html')
-    
-# this is a test
